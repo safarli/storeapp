@@ -1,60 +1,79 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div>
+    <h1>Ambar idareetme programi</h1>
+    <router-link :to="{ name: 'home' }" tag="button" active-class="active" exact
+      >Go to Home</router-link
+    >
+    <router-link
+      :to="{ name: 'ViewProducts' }"
+      active-class="active"
+      tag="button"
+      exact
+      >Go to View Products Page</router-link
+    >
+    <router-link
+      :to="{ name: 'EditProducts' }"
+      tag="button"
+      active-class="active"
+      exact
+      >Go to Edit Products Page</router-link
+    >
+    <router-link
+      :to="{ name: 'AddProducts' }"
+      tag="button"
+      active-class="active"
+      exact
+      >Add Products</router-link
+    >
+    <router-link
+      class="registerbtn"
+      :to="{ name: 'Register' }"
+      tag="button"
+      active-class="active"
+      exact
+    >
+      Register
+    </router-link>
+    <router-link
+      class="loginbtn"
+      :to="{ name: 'Login' }"
+      tag="button"
+      active-class="active"
+      exact
+    >
+      Login
+    </router-link>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <router-view name="a"></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
-}
+export default {};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.registerbtn,
+.loginbtn {
+  background-color: aquamarine;
 }
-
-h1, h2 {
-  font-weight: normal;
+.registerbtn:hover,
+.loginbtn:hover {
+  background-color: rgb(104, 209, 174);
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.active {
+  border-bottom: 4px solid blue;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
+button {
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: rgb(255, 232, 127);
 }
-
-a {
-  color: #42b983;
+button:hover {
+  background-color: rgb(218, 198, 109);
 }
 </style>
